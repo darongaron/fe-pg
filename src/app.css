@@ -1,0 +1,2 @@
+@import "./css/val.css";
+h1{color: var(--main-color);}

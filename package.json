@@ -1,0 +1,35 @@
+{
+  "name": "web-pg",
+  "version": "0.0.0",
+  "description": "web play ground",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm-run-all --parallel serve watch:css",
+    "release": "npm-run-all --parallel release:*",
+    "build": "npm-run-all --parallel build:*",
+    "watch": "npm-run-all --parallel watch:*",
+    "serve": "esbuild src/app.ts --outfile=dist/app.js --bundle --servedir=./",
+    "build:ts": "esbuild src/app.ts --outfile=dist/app.js --bundle",
+    "watch:ts": "esbuild src/app.ts --outfile=dist/app.js --bundle --watch",
+    "release:ts": "esbuild src/app.ts --outfile=dist/app.js --bundle --minify",
+    "build:css": "postcss src/app.css --output dist/app.css",
+    "watch:css": "postcss src/app.css --output dist/app.css --watch",
+    "release:css": "postcss src/app.css --env production --output dist/app.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "f",
+  "license": "ISC",
+  "devDependencies": {
+    "cssnano": "^5.1.13",
+    "esbuild": "^0.15.10",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.17",
+    "postcss-cli": "^10.0.0",
+    "postcss-import": "^15.0.0",
+    "postcss-preset-env": "^7.8.2"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%"
+  ]
+}
